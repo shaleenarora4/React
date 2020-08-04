@@ -1,0 +1,10 @@
+.listContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    overflow: auto;
+    height: 300px;
+    min-width: 25%;
+    width: 50%;
+}

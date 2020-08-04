@@ -1,0 +1,17 @@
+*{
+    outline: none;
+}
+.inputContainer {
+    min-width: 25%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.inputContainer input {
+    width: 600px;
+    padding:10px 16px;
+    font-size: 24px;
+    border: thin solid #ddd;
+    border-radius: 4px;
+    opacity: 0.7;
+}

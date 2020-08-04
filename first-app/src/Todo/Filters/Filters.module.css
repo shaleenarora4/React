@@ -1,0 +1,7 @@
+.filterList{
+    display: flex;
+}
+
+.active{
+    background-color:grey;
+}
