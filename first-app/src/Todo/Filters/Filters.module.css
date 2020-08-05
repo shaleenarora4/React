@@ -1,7 +1,18 @@
 .filterList{
     display: flex;
+    cursor: pointer;
+}
+
+.filterList div{
+    display: inline-block;
+    margin: 2px 2px;
+    padding: 2px 7px;
+    border: thin solid #ddd;
+    border-radius: 4px;
+    text-align: center;
 }
 
 .active{
-    background-color:grey;
+    /* background-color:#80808087; */
+    background-color: teal;
 }

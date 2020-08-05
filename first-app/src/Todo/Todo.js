@@ -5,6 +5,7 @@ import Filters from './Filters/Filters';
 import './Todo.Module.css';
 
 function Todo(){
+
     const [todos,setTodos]=useState([]);
     const [filter,setFilter]=useState('all');
     const [activeCount,setActiveCount]=useState(0);
@@ -15,6 +16,8 @@ function Todo(){
     }
 
     const onDelete=function(todo){
+        if(!todo.completed)
+            setActiveCount(activeCount-1);
         setTodos(todos.filter(t=>t!==todo));
     }
 
