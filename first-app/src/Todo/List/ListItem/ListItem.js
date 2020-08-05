@@ -13,6 +13,7 @@ function ListItem(props){
             props.onCountChange(todo);
     }
 
+
     if (filter === 'all' || (filter === 'completed' && todo.completed) || (filter === 'active' && !todo.completed)) {
         return (
             <div className={!todo.completed ? 'list-item' : 'list-item-strikeThru'}>

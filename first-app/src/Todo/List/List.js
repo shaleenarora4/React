@@ -8,7 +8,7 @@ function List(props){
         <div className='listContainer'>
             {
                 todos.map(todo=>{
-                    return <ListItem onCountChange={props.onCountChange} filter={props.filter} onStatusChange={props.onStatusChange} todo={todo} onDelete={props.onDelete}/>
+                    return <ListItem onCountChange={props.onCountChange} setStorage={props.setStorage} filter={props.filter} onStatusChange={props.onStatusChange} todo={todo} onDelete={props.onDelete}/>
                 })
             }
         </div>    

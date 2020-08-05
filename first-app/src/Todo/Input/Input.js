@@ -21,7 +21,7 @@ function Input(props){
     
     return(
         <div className="inputContainer">
-            <input onChange={onInputChange} onKeyPress={onKeyPress} value={input} placeholder='Enter task'/>
+            <input onChange={onInputChange} onKeyPress={onKeyPress}  value={input} placeholder='Enter task'/>
         </div>
     );
 }
