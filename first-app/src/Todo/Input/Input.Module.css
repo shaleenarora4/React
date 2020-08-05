@@ -6,10 +6,11 @@
     margin-top: 50px;
     display: flex;
     justify-content: center;
+    width:50%;
 }
 .inputContainer input {
-    width: 600px;
-    padding:10px 16px;
+    width: 92%;
+    padding:10px 10px;
     font-size: 24px;
     border: thin solid #ddd;
     border-radius: 4px;

@@ -10,9 +10,10 @@
     border: thin solid #ddd;
     border-radius: 4px;
     text-align: center;
+    color: grey;
 }
 
 .active{
-    /* background-color:#80808087; */
-    background-color: teal;
+    background-color:#80808087;
+    /* background-color: teal; */
 }

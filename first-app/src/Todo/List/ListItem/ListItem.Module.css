@@ -2,23 +2,23 @@
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    width: 600px;
-    padding:10px 16px;
+    width: 93%;
+    padding:10px 10px;
     font-size: 24px;
     border: thin solid #ddd;
     border-radius: 4px;
-    min-width: 25%;
+    /* min-width: 5%; */
 }
 
 .list-item-strikeThru {
     display: flex;
     color: grey;
-    width: 600px;
-    padding: 10px 16px;
+    width: 93%;
+    padding: 10px 10px;
     font-size: 24px;
     border: thin solid #ddd;
     border-radius: 4px;
-    min-width: 25%;
+    /* min-width: 25%; */
 }
 .list-item-strikeThru p{
     text-decoration: line-through;
