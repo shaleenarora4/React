@@ -16,7 +16,6 @@ function Input(props) {
 
     const addInput = function (e) {
         if (e.keyCode === 13 && e.target.value) {
-            props.addInput(e.target.value);
             setValue(' ');
         }
     }

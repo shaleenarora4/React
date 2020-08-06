@@ -6,12 +6,14 @@ import Item from './Item/Item';
 
 function List(props) {
     const data = props.data;
+
+
         return (
-            <div id="suggested">
+            <div id="suggested" >
                 {
                     data && data.Search && data.Search.map(
                         itemData => {
-                            return (<Item data={itemData}/>);
+                            return (<Item data={itemData} onListItemClick={props.onListItemClick}/>);
                         }
                     )
                 }
