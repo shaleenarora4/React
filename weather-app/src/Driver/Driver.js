@@ -4,13 +4,12 @@ import Main from './Main/Main';
 import './Driver.scss';
 
 class Driver extends React.Component {
-  
 
   constructor(props) {
     super(props);
     this.state =  { location: 'London' ,
                     dailyData:{"sys":{"type":1,"id":5091,"message":0.0103,"country":"GB","sunrise":1485762037,"sunset":1485794875},
-                      "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09d"}],
+                      "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"02d"}],
                       "main":{"temp":280.32,"pressure":1012,"humidity":81,"temp_min":279.15,"temp_max":281.15}}
                   };
     this.setLocation=this.setLocation.bind(this);
