@@ -16,7 +16,16 @@ class Driver extends React.Component {
 }
 
 changeData=function(url){
-  fetch(url).then(res => res.json()).then(data =>this.setState({dailyData: data}));
+  fetch(url).then(res => res.json()).then(
+    (data)=>{this.setState({dailyData:data});
+              // console.log(data);    
+              const lati=data.coord.lat;
+              const long=data.coord.lon;
+              console.log(lati,long);
+              fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=lati&lon=long&
+                exclude={part}&appid=e43904c5c292d78a35e71ce7973149ed`).then(res=>res.json()).then(data=>console.log(url));
+  }
+    );
 }
 
 changeUrl=function(location){     
@@ -73,4 +82,6 @@ container{
 
 1. https://demo.w3layouts.com/demos_new/16-02-2017/aridity_weather_widget-demo_Free/315271637/web/index.html#parentHorizontalTab3
 2. weather-icons  https://cssdeck.com/labs/ten-animated-weather-glyphs-skycons?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+cssdeck+%28CSSDeck%29
+3. world time using timezone -http://worldtimeapi.org/api/http://worldtimeapi.org/api/
+4. one call api - https://openweathermap.org/api/one-call-api
 */
