@@ -4,40 +4,53 @@ import Main from './Main/Main';
 import './Driver.scss';
 
 class Driver extends React.Component {
-
+debugger;
   constructor(props) {
     super(props);
-    this.state =  { location: 'London' ,
-                    dailyData:{"sys":{"type":1,"id":5091,"message":0.0103,"country":"GB","sunrise":1485762037,"sunset":1485794875},
-                      "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"02d"}],
-                      "main":{"temp":280.32,"pressure":1012,"humidity":81,"temp_min":279.15,"temp_max":281.15}}
-                  };
+    // this.state =  { location: 'London' ,
+    //                   alldata:{current:{
+    //                   clouds: 40,
+    //                   dew_point: 27.51,
+    //                   dt: 1597599779,
+    //                   feels_like: 37.14,
+    //                   humidity: 84,
+    //                   pressure: 999,
+    //                   sunrise: 1597537262,
+    //                   sunset: 1597584600,
+    //                   temp: 30.53,
+    //                   wind_speed: 3.02,
+    //                   "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"02d"}],
+    //                   "main":{"temp":280.32,"pressure":1012,"humidity":81,"temp_min":279.15,"temp_max":281.15}}}  
+    //               };
+    this.state={
+        location:'',
+        alldata:{}
+    }
     this.setLocation=this.setLocation.bind(this);
 }
 
-changeData=function(url){
+changeData=function(url,reslocation){  
   fetch(url).then(res => res.json()).then(
-    (data)=>{this.setState({dailyData:data});
-              // console.log(data);    
-              const lati=data.coord.lat;
-              const long=data.coord.lon;
-              console.log(lati,long);
-              fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=lati&lon=long&
-                exclude={part}&appid=e43904c5c292d78a35e71ce7973149ed`).then(res=>res.json()).then(data=>console.log(url));
-  }
-    );
+    (data)=>{//this.setState({dailyData:data});  
+              let loc=reslocation; 
+              const {lat,lon}=data.coord;
+              let url=`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&
+              exclude={part}&appid=e43904c5c292d78a35e71ce7973149ed&units=metric`
+              fetch(url).then(res=>res.json()).then(data=> this.setState({location: loc,alldata:data})
+              );
+  });
 }
 
 changeUrl=function(location){     
   if(location){
       let updatedUrl='https://api.openweathermap.org/data/2.5/weather?q=city&appid=e43904c5c292d78a35e71ce7973149ed';
       updatedUrl=updatedUrl.replace('city',location);
-      this.changeData(updatedUrl);         
+      this.changeData(updatedUrl,location);         
   }
 }
 
 setLocation=function(resLocation){
-  this.setState({location: resLocation}); 
+  // this.setState({location: resLocation}); 
   this.changeUrl(resLocation);             
 }
 
@@ -48,8 +61,9 @@ componentDidMount() {
    render(){
     return (
         <div className='container'>
+            <div className='Title'>Weather App</div>
             <Input setLocation={this.setLocation}/>
-            <Main location={this.state.location} dailyData={this.state.dailyData}/>
+            <Main location={this.state.location}  alldata={this.state.alldata} /*timezone={this.state.alldata.timezone}*//>
         </div>
     );
    }

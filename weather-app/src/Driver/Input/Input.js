@@ -9,7 +9,7 @@ function Input(props){
 
     const onInput=function(e){
         if(e.charCode===13){
-            props.setLocation(e.target.value);
+            props.setLocation( e.target.value);
             setValue('');
         }
     }

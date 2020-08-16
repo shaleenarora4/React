@@ -1,43 +1,25 @@
 import React from 'react';
-import ReactAnimatedWeather from 'react-animated-weather';
 
-function Topright(props){
-    const weatherState={'02d':'PARTLY_CLOUDY_DAY',
-                        '02n':'PARTLY_CLOUDY_NIGHT',
-                        '03d':'CLOUDY',
-                        '03n':'CLOUDY',
-                        '04d':'CLOUDY',
-                        '04n':'CLOUDY',
-                        '09d':'RAIN',
-                        '09n':'RAIN',
-                        '10d':'RAIN',
-                        '10n':'RAIN',
-                        '11d':'RAIN',
-                        '11n':'RAIN',
-                        '13d':'SNOW',
-                        '13n':'SNOW',
-                        '50d':'WIND',
-                        '50n':'WIND'
-                    };
+function Topright(props) {
+    debugger;
+    const data = props.alldata.current;
 
-    const defaults = {
-        icon: weatherState[props.dailyData.weather[0].icon],
-        color: 'teal',
-        size: 100,
-        animate: true
-      };
+    if (!data) {
+        return null;
+    }
+    else {
 
-    return(
-        <div>
-                   
-            <ReactAnimatedWeather
-                icon={defaults.icon}
-                color={defaults.color}
-                size={defaults.size}
-                animate={defaults.animate}
-            />
-        </div>
-    );
+        return (
+            <div className='info'>
+                <div className='siders'><div>{'Humidity'}</div><div>{data.humidity + "%"}</div></div>
+                <div className='siders'><div>{'Wind Speed'}</div><div>{data.wind_speed}</div></div>
+                <div className='siders'><div>{'Wind Degree'}</div><div>{data.wind_deg}</div></div>
+                <div className='siders'><div>{'Cloudiness'}</div><div> {data.clouds + '%'}</div></div>
+                <div className='siders'><div>{'Prssure'}</div><div>{data.pressure}</div></div>
+                <div className='siders'><div>{'UV Index'}</div><div>{data.uvi}</div></div>
+            </div>
+        );
+    }
 }
 
 export default Topright;
