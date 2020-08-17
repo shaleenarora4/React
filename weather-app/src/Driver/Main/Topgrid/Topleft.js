@@ -5,7 +5,6 @@ function Topleft(props) {
 
     const location = props.location;
     const data = props.alldata.current;
-    console.log(props.alldata);
 
     const weatherState = {
         '01d': 'CLEAR_DAY',
@@ -32,7 +31,7 @@ function Topleft(props) {
         const defaults = {
             icon: weatherState[data.weather[0].icon],
             color: 'white',
-            size: 100,
+            size: 120,
             animate: true
         };
 
@@ -40,10 +39,10 @@ function Topleft(props) {
         return (
             <div className='topleft'>
                 <div className='location'>{location}</div>
-                <div>{data.weather[0].main}</div>
+                <div className='main-weather'>{data.weather[0].main}</div>
                 <div className='tempicon'>
-                    <div className='temp'>{data.temp + ' C'}</div>
-                    <h2> <ReactAnimatedWeather
+                    <div className='temp'>{Math.round(data.temp) + '\u00b0'+' C'}</div>
+                    <h2 className='weathericon'> <ReactAnimatedWeather
                         icon={defaults.icon}
                         color={defaults.color}
                         size={defaults.size}
