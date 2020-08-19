@@ -15,7 +15,7 @@ function Input(props){
     }
 
     return(
-        <input className='input-div' value={value} onChange={onInputChange} onKeyPress={onInput} type='text' placeholder='Your City?' spellcheck="false"/>
+        <input className='input-div row' value={value} onChange={onInputChange} onKeyPress={onInput} type='text' placeholder='Your City?' spellcheck="false"/>
     );
 }
 

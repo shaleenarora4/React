@@ -31,18 +31,18 @@ function Topleft(props) {
         const defaults = {
             icon: weatherState[data.weather[0].icon],
             color: 'white',
-            size: 120,
+            // size: 120,
             animate: true
         };
 
 
         return (
-            <div className='topleft'>
+            <div className='topleft col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-12 justify-content-center'>
                 <div className='location'>{location}</div>
                 <div className='main-weather'>{data.weather[0].main}</div>
-                <div className='tempicon'>
-                    <div className='temp'>{Math.round(data.temp) + '\u00b0'+' C'}</div>
-                    <h2 className='weathericon'> <ReactAnimatedWeather
+                <div className='tempicon row'>
+                    <div className='temp col-6'>{Math.round(data.temp) + '\u00b0'}</div>
+                    <h2 className='weathericon col-6'> <ReactAnimatedWeather
                         icon={defaults.icon}
                         color={defaults.color}
                         size={defaults.size}
